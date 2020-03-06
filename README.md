@@ -1,2 +1,2 @@
 # momentum-js
- Momentum JavaScript Web App
+ Momentum Web App with VanillaJS
