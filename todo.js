@@ -1,20 +1,33 @@
 const toDoForm = document.querySelector(".js-toDoForm"),
   toDoInput = toDoForm.querySelector("input");
 toDoList = document.querySelector(".js-toDoList");
+trashIcon = document.querySelector(".trash");
 
 const TODOS_LS = "toDos";
 
 let toDos = [];
 
+function clickTrashIcon() {
+  const li = document.querySelectorAll("li");
+
+  for (let i = 0; i < li.length; i++) {
+    if (toDos[`${i}`].id === parseInt(li[`${i}`].id, 10)) {
+      toDoList.removeChild(li[`${i}`]);
+    }
+  }
+  toDos = [];
+  saveToDos();
+}
+
 function deleteToDo(event) {
-    const btn = event.target;
-    const li = btn.parentNode;
-    toDoList.removeChild(li);
-    const cleanToDos = toDos.filter(function(toDo){
-        return toDo.id !== parseInt(li.id);
-    });
-    toDos = cleanToDos;
-    saveToDos();
+  const btn = event.target;
+  const li = btn.parentNode;
+  toDoList.removeChild(li);
+  const cleanToDos = toDos.filter(function(toDo) {
+    return toDo.id !== parseInt(li.id);
+  });
+  toDos = cleanToDos;
+  saveToDos();
 }
 
 function saveToDos() {
@@ -23,12 +36,15 @@ function saveToDos() {
 
 function paintToDo(text) {
   const li = document.createElement("li");
+  const checkInput = document.createElement("input");
   const delBtn = document.createElement("button");
   const span = document.createElement("span");
   const newId = toDos.length + 1;
   delBtn.innerHTML = "❌";
   delBtn.addEventListener("click", deleteToDo);
+  checkInput.type = "checkbox";
   span.innerText = text;
+  li.appendChild(checkInput);
   li.appendChild(span);
   li.appendChild(delBtn);
   li.id = newId;
@@ -55,6 +71,7 @@ function loadToDos() {
     parsedToDos.forEach(function(toDo) {
       paintToDo(toDo.text);
     });
+    trashIcon.addEventListener("click", clickTrashIcon);
   }
 }
 
