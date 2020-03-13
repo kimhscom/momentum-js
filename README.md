@@ -1,5 +1,4 @@
-# momentum-js
- Momentum Web App with VanillaJS
+# Momentum Web App with VanillaJS
  (👉[See the Momentum To-Do List Clone](https://kimhscom.github.io/momentum-js/)👈)
 
 ## ✅ To-Do List
