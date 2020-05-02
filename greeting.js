@@ -48,11 +48,11 @@ function paintGreeting(text) {
   form.classList.remove(SHOWING_CN);
   greeting.classList.add(SHOWING_CN);
   if (currentHours >= 6 && currentHours <= 12) {
-    greeting.innerText = `Good Morning ${text}`;
+    greeting.innerText = `Good Morning, ${text}.`;
   } else if (currentHours >= 12 && currentHours <= 24) {
-    greeting.innerText = `Good Afternoon ${text}`;
+    greeting.innerText = `Good Afternoon, ${text}.`;
   } else {
-    greeting.innerText = `Good Evening ${text}`;
+    greeting.innerText = `Good Evening, ${text}.`;
   }
   greeting.appendChild(modifyBtn);
   modifyBtn.addEventListener("click", modifyName);

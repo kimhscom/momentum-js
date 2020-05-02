@@ -135,28 +135,21 @@ form input::placeholder,
   display: block;
 }
 
-.toDoList {
+.toDoList,
+.finishedList {
   padding-left: 0;
 }
 
-.toDoList li {
+.toDoList li,
+.finishedList li {
   list-style: none;
   font-family: "Comfortaa", cursive;
   font-size: 15px;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   padding: 3px 0px;
-}
-
-li input[type="checkbox"] {
-  margin: 0;
-  padding: 0;
-  width: 15px;
-  height: 15px;
-  cursor: pointer;
-}
-
-li input[type="checkbox"]:checked + span {
-  text-decoration: line-through;
 }
 
 li span {
