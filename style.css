@@ -57,9 +57,9 @@ body {
 }
 
 .form input,
- .toDoForm input{
-  width: 200px;
-  font-family: "Racing Sans One", cursive;
+.toDoForm input {
+  width: 250px;
+  font-family: "Comfortaa", cursive;
   font-size: 20px;
   color: #ffffff;
   text-align: center;
@@ -71,17 +71,17 @@ body {
 }
 
 form input::placeholder,
- .toDoForm input::placeholder {
-   color: #ffffff;
- }
+.toDoForm input::placeholder {
+  color: #ffffff;
+}
 
 .form input:focus,
- .toDoForm input:focus { 
+.toDoForm input:focus {
   transform: translateY(-10px);
- }
+}
 
 .container .greetings {
-  font-family: "Racing Sans One", cursive;
+  font-family: "Comfortaa", cursive;
   font-size: 20px;
   text-shadow: 2px 2px 2px rgb(189, 183, 183);
 }
@@ -187,16 +187,56 @@ li button {
   left: 0;
   width: 100%;
   height: 100%;
+  background-size: cover;
   z-index: -1;
   animation: fadeIn 0.5s linear;
 }
 
 .weather {
   position: absolute;
-  bottom: 3%;
+  top: 3%;
   right: 3%;
   font-family: "Comfortaa", cursive;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 18px;
   text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.466);
+}
+
+.modal {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_overlay {
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.modal_content {
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 50px;
+  position: relative;
+  width: 50%;
+  top: 0;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.modal_content > span {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }

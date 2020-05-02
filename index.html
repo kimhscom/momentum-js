@@ -14,6 +14,7 @@
   </head>
   <body>
     <div class="container">
+      <span class="js-weather weather"></span>
       <div class="js-clock">
         <h1>00:00</h1>
       </div>
@@ -30,16 +31,24 @@
         </form>
         <span class="trash">
           <i class="fas fa-trash"></i>
-        </span>        
+        </span>
       </div>
       <ul class="js-toDoList toDoList"></ul>
-      <span class="js-weather weather"></span>
     </div>
+    <div class="modal hidden">
+      <div class="modal_overlay"></div>
+      <div class="modal_content">
+        <h1>😭 Please enter your name! 😭</h1>
+        <span>
+          <i class="far fa-times-circle fa-3x"></i>
+        </span>
+      </div>
+    </div>
+    <script src="bg.js"></script>
+    <script src="weather.js"></script>
     <script src="clock.js"></script>
     <script src="date.js"></script>
     <script src="greeting.js"></script>
     <script src="todo.js"></script>
-    <script src="bg.js"></script>
-    <script src="weather.js"></script>
   </body>
 </html>

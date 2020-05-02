@@ -12,6 +12,21 @@ function saveName(text) {
 function handleUserSubmit(event) {
   event.preventDefault();
   const currentName = input.value;
+  const modal = document.querySelector(".modal");
+  const overlay = modal.querySelector(".modal_overlay");
+  const closeBtn = modal.querySelector("span");
+  const openModal = () => {
+    modal.classList.remove("hidden");
+  };
+  const closeModal = () => {
+    modal.classList.add("hidden");
+  };
+  if (currentName === "") {
+    openModal();
+    closeBtn.addEventListener("click", closeModal);
+    overlay.addEventListener("click", closeModal);
+    return;
+  }
   paintGreeting(currentName);
   saveName(currentName);
 }
@@ -27,11 +42,18 @@ function modifyName() {
 }
 
 function paintGreeting(text) {
+  const currentHours = new Date().getHours;
   const modifyBtn = document.createElement("button");
-  modifyBtn.innerText = "⏏︎";
+  modifyBtn.innerHTML = `<i class="fas fa-address-card"></i>`;
   form.classList.remove(SHOWING_CN);
   greeting.classList.add(SHOWING_CN);
-  greeting.innerText = `Hello ${text}`;
+  if (currentHours >= 6 && currentHours <= 12) {
+    greeting.innerText = `Good Morning ${text}`;
+  } else if (currentHours >= 12 && currentHours <= 24) {
+    greeting.innerText = `Good Afternoon ${text}`;
+  } else {
+    greeting.innerText = `Good Evening ${text}`;
+  }
   greeting.appendChild(modifyBtn);
   modifyBtn.addEventListener("click", modifyName);
 }
