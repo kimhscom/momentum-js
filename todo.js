@@ -19,23 +19,30 @@ function saveFinished() {
 }
 
 function clickTrashIcon() {
-  const li = document.querySelectorAll("li");
-  console.log(li);
-  /*
+  cleanAllToDos();
+  cleanAllFinished();
+}
+
+function cleanAllToDos() {
+  const li = document.querySelectorAll(".toDoList > li");
   for (let i = 0; i < li.length; i++) {
-    if (
-      toDos[`${i}`].id === parseInt(li[`${i}`].id, 10) ||
-      finished[`${i}`].id === parseInt(li[`${i}`].id, 10)
-    ) {
+    if (toDos[`${i}`].id === parseInt(li[`${i}`].id, 10)) {
       toDoList.removeChild(li[`${i}`]);
-      finished.removeChild(li[`${i}`]);
     }
   }
   toDos = [];
-  finished = [];
   saveToDos();
+}
+
+function cleanAllFinished() {
+  const li = document.querySelectorAll(".finishedList > li");
+  for (let i = 0; i < li.length; i++) {
+    if (finished[`${i}`].id === parseInt(li[`${i}`].id, 10)) {
+      finishedList.removeChild(li[`${i}`]);
+    }
+  }
+  finished = [];
   saveFinished();
-  */
 }
 
 function deleteToDo(event) {
