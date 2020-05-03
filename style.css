@@ -16,6 +16,10 @@ body {
   align-items: center;
 }
 
+h2 {
+  font-family: "Comfortaa", cursive;
+}
+
 @keyframes containerAnimamation {
   from {
     opacity: 0;
